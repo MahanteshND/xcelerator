@@ -1,0 +1,22 @@
+<div class="container" style="padding-top: 20rem">
+  <%= form_for(:topic_of_interest, :url => topic_of_interests_path, html: {class: "form-horizontal"}, method: :post) do |f| %>
+    <div class="form-group">
+      <%= f.label :topic_name, class: "control-label col-sm-2" %>
+      <div class="col-sm-6">
+        <%= f.text_field :topic_name, class: "form-control", placeholder: "Enter topic name" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :short_desc, class: "control-label col-sm-2" %>
+      <div class="col-sm-6">
+        <%= f.text_field :short_desc, class: "form-control", placeholder: "Enter topic desc.." %>
+      </div>
+    </div>
+    <input type="hidden" name="topic_of_interest[user_id]" value="<%= current_user.id %>">
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <button type="submit" class="btn btn-default">Submit</button>
+      </div>
+    </div>
+  <% end %>
+</div>
